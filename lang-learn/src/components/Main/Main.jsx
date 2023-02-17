@@ -5,9 +5,11 @@ import style from './main.module.scss';
 
 function Main() {
 return (
+<div className={style.main}>
 <div className={style.container}>
   <SelectionLang />
-  <TableMain/>  
+  <TableMain/>
+  </div> 
 </div>
 );
 }

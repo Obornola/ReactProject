@@ -1,0 +1,25 @@
+@import '../../style/vars.scss';
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+
+    ul{
+        min-width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a {
+        color: $lightFontColor;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: $lightBlue;
+    }
+}

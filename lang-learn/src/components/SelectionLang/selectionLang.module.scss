@@ -8,10 +8,11 @@
 
 
     .dropDownList {
-        position: relative;
+        display: flex;
+        align-items: center;
     }
 
-    label {
+    p {
         margin-right: 10px;
         font-size: 20px;
     }
@@ -24,42 +25,6 @@
         color: $darkFontColor;
         border: 2px solid $darkBlue;
         border-radius: 5px;
-    }
-
-    .selectArrow {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: block;
-        background-color: $darkBlue;
-        height: 100%;
-        width: 30px;
-        pointer-events: none;
-        border-radius: 0 5px 5px 0;
-
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        &::before {
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 7px solid rgba(216, 216, 244, 0.7);
-            top: 63%;
-        }
-
-        &::after {
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-bottom: 7px solid rgba(216, 216, 244, 0.7);
-            top: 38%;
-        }
     }
 
 }

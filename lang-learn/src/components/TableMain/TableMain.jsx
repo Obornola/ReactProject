@@ -12,7 +12,7 @@ const numberArr = [];
 function TableMain() {
 return (
 <div className={style.container}>
-  <h3>Список слов</h3>
+  <h3>Таблица слов</h3>
   <div className={style.table}>
     <div className={style.tableHead}>
       <div className={style.columnNumber}>№</div>
