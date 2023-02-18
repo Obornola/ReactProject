@@ -1,3 +1,49 @@
-.container{
-    color: rgb(31, 31, 170);
+@import '../../style/vars.scss';
+@font-face {
+    font-family: Imported;
+    src: url(../../fonts/Niconne-Regular.ttf);
+}
+
+.card{
+    width: 300px;
+    height: 200px;
+    background-color: $backgroundTable;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .itemLanguage {
+        padding-top: 15px;
+        font-size: 54px;
+        font-weight: 600;
+        font-family: Imported;
+    }
+
+    .itemTranscription{
+        padding: 10px 0;
+        font-size: 24px;
+    }
+
+    .itemButton {
+        padding: 7px 7px;
+        font-size: 16px;
+        background-color: $darkBlue;
+        color: $lightFontColor;
+        border-radius: 9px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+    }
+
+    .itemButton:hover{
+        background-color: rgb(87, 87, 143);
+    }
+
+    .itemRussian {
+        font-size: 24px;
+    }
 }

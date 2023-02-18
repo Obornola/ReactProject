@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import deleteBtn from './deleteBtn.svg';
 import editBtn from './editBtn.svg';
 import saveBtn from './saveBtn.svg';
+import closeBtn from './closeBtn.svg';
 import style from './tableBody.module.scss';
 
 function TableBody({number, english, transcription, russian}) {
@@ -11,6 +12,10 @@ const [isEdit, setIsEdit] = useState(true);
 
 function getEditWord(){
 setIsEdit(!isEdit);
+}
+
+function getCansel(){
+  setIsEdit(true);
 }
 
 return (
@@ -44,10 +49,13 @@ return (
       </div>
       <div className={style.columnEdit}>
         <div className={classNames(style.button, style.btnSave)}>
-          <HandySvg src={saveBtn} className={style.path} width="16" height="16" fill="none" />
+          <HandySvg src={saveBtn} className={style.btnSaveSvg} width="16" height="16" fill="none" />
         </div>
         <div className={classNames(style.button, style.btnDelete)}>
-          <HandySvg src={deleteBtn} className={style.path} width="16" height="16" fill="none" />
+          <HandySvg src={deleteBtn} className={style.btnDeleteSvg} width="16" height="16" fill="none" />
+        </div>
+        <div className={classNames(style.button, style.btnClose)} onClick={getCansel}>
+          <HandySvg src={closeBtn} className={style.btnCloseSvg} width="16" height="16" fill="none" />
         </div>
       </div>
     </div>

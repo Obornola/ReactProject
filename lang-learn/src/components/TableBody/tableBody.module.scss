@@ -33,22 +33,12 @@
         padding: 5px 6px 7px;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
         border-radius: 9px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         cursor: pointer;
         transition: 0.3s;
     }
-
-    // svg {
-
-
-    //     .path {
-    //         stroke: $darkBlue;
-    //     }
-    // }
-
-
 
     .btnEdit {
         background-color: rgb(84, 176, 84);
@@ -72,6 +62,14 @@
 
     .btnDelete:hover {
         background-color: rgb(244, 111, 111);
+    }
+
+    .btnClose {
+        background-color: rgb(239, 166, 32);
+    }
+
+    .btnClose:hover {
+        background-color: rgb(230, 182, 94);
     }
 }
 

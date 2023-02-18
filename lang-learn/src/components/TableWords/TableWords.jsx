@@ -1,7 +1,7 @@
 import React from 'react';
 import TableBody from '../TableBody/TableBody';
 import data from '../../data/data.json';
-import style from './tableMain.module.scss';
+import style from './tableWords.module.scss';
 
 const numberArr = [];
 
@@ -9,7 +9,7 @@ const numberArr = [];
       numberArr.push(i);
   }
 
-function TableMain() {
+function TableWords() {
 return (
 <div className={style.container}>
   <h3>Таблица слов</h3>
@@ -39,4 +39,4 @@ return (
 
 
 
-export default TableMain;
+export default TableWords;
