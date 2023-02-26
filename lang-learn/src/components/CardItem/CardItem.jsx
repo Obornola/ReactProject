@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './cardItem.module.scss';
 
 function CardItem({english, transcription, russian}) {
 const [isTranslate, setIsTranslate] = useState(true);
 
 function getTranslateWord(){
-setIsTranslate(!isTranslate);
-}
+  setIsTranslate(!isTranslate);
+  }
+
+useEffect(()=>{
+  
+}, [isTranslate]);
+
+
 return (
 <>
 {isTranslate ? (

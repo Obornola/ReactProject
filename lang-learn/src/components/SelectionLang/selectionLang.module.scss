@@ -5,6 +5,7 @@
     justify-content: center;
     height: 20vh;
     width: 100%;
+    
 
 
     .dropDownList {
@@ -12,19 +13,14 @@
         align-items: center;
     }
 
-    p {
-        margin-right: 10px;
-        font-size: 20px;
-    }
-
-    select {
+    .select {
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        font-size: 20px;
-        padding: 8px 80px 8px 20px;
+        font-size: 30px;
         background-color: $backgroundTable;
         color: $darkFontColor;
         border: 2px solid $darkBlue;
         border-radius: 5px;
+
     }
 
 }

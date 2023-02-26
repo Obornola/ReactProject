@@ -5,8 +5,9 @@
 }
 
 .card{
+    margin: 60px auto;
     width: 300px;
-    height: 200px;
+    height: 250px;
     background-color: $backgroundTable;
     border-radius: 25px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -30,6 +31,7 @@
     }
 
     .itemButton {
+        margin-top: 20px;
         padding: 7px 7px;
         font-size: 16px;
         background-color: $darkBlue;
@@ -44,6 +46,7 @@
     }
 
     .itemRussian {
+        margin-top: 20px;
         font-size: 24px;
     }
 }
