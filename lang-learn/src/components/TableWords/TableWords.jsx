@@ -1,11 +1,11 @@
 import React from 'react';
 import TableBody from '../TableBody/TableBody';
-import data from '../../data/data.json';
+import words from '../../data/words.json';
 import style from './tableWords.module.scss';
 
 const numberArr = [];
 
-  for (let i = 1; i <= data.length; i++){
+  for (let i = 1; i <= words.length; i++){
       numberArr.push(i);
   }
 
@@ -23,7 +23,7 @@ return (
     </div>
     <>
       {
-      data.map((item, index)=>
+      words.map((item, index)=>
       <TableBody english={item.english} 
                  transcription={item.transcription} 
                  russian={item.russian}

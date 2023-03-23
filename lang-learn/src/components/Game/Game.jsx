@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import data from '../../data/data.json';
+import words from '../../data/words.json';
 import classNames from 'classnames/bind';
 import CardItem from '../CardItem/CardItem.jsx';
 import ButtonSlider from '../ButtonSlider/ButtonSlider.jsx';
@@ -8,21 +8,21 @@ import ButtonSlider from '../ButtonSlider/ButtonSlider.jsx';
 import style from './game.module.scss';
 
 function Game() {
-  const [cardIndex, setCardIndex] = useState(1);
+  const [cardIndex, setCardIndex] = useState(0);
 
   function prevCard() {
-    if (cardIndex !== 1) {
+    if (cardIndex === 0) {
+      setCardIndex(words.length-1);
+    } else if (cardIndex !== 0) {
       setCardIndex(cardIndex - 1);
-    } else if (cardIndex === 1) {
-      setCardIndex(data.length);
     }
   }
 
   function nextCard() {
-    if (cardIndex !== data.length) {
+    if (cardIndex !== words.length-1) {
       setCardIndex(cardIndex + 1);
-    } else if (cardIndex === data.length) {
-      setCardIndex(1);
+    } else if (cardIndex === words.length-1) {
+      setCardIndex(0);
     }
   }
 
@@ -30,14 +30,10 @@ function Game() {
     <div className = {style.game}>
     <div className = {style.container}>
     <>
-    {data.map((item, index) => {
+    {words.map((item, index) => {
       return(
-        <div className={cardIndex === index + 1 ? classNames(style.slide, style.activeAnim) : classNames(style.slide)} key = {item.id}>
-        <CardItem english = {item.english}
-                  transcription = {item.transcription}
-                  russian = {item.russian}
-                  key = {item.id}
-        />
+        <div className={cardIndex === index ? classNames(style.slide, style.activeAnim) : classNames(style.slide)} key = {item.id}>
+        <CardItem words={words[cardIndex]}/>
         </div>
       )
     })}

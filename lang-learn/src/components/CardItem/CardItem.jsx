@@ -1,41 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import style from './cardItem.module.scss';
 
-function CardItem({english, transcription, russian}) {
+function CardItem({words}) {
+const {english, transcription, russian} = words;
 const [isTranslate, setIsTranslate] = useState(true);
 
 function getTranslateWord(){
   setIsTranslate(!isTranslate);
   }
 
-useEffect(()=>{
-  
-}, [isTranslate]);
-
-
 return (
-<>
-{isTranslate ? (
   <>
   <div className={style.card}>
     <div className={style.column}>
       <div className={style.itemLanguage}>{english}</div>
       <div className={style.itemTranscription}>{transcription}</div>
+      {isTranslate ? (
       <button className={style.itemButton} onClick={getTranslateWord}>Посмотреть перевод</button>
-    </div>
-  </div>
-  </>
-) : (
-<>
-<div className={style.card}>
-    <div className={style.column}>
-      <div className={style.itemLanguage}>{english}</div>
-      <div className={style.itemTranscription}>{transcription}</div>
+      ):(
       <div className={style.itemRussian}>{russian}</div>
+      )}
     </div>
   </div>
-</>
-  )}
 </>
 );
 }
