@@ -33,7 +33,7 @@ function Game() {
     {words.map((item, index) => {
       return(
         <div className={cardIndex === index ? classNames(style.slide, style.activeAnim) : classNames(style.slide)} key = {item.id}>
-        <CardItem words={words[cardIndex]}/>
+        <CardItem words={words[cardIndex]} cardIndex={cardIndex} key={cardIndex}/>
         </div>
       )
     })}
