@@ -4,6 +4,10 @@
     src: url(../../fonts/Niconne-Regular.ttf);
 }
 
+a {
+    color: $lightFontColor;   
+}
+
 .logo {
     display: flex;
     align-items: center;

@@ -1,0 +1,55 @@
+@import '../../style/vars.scss';
+
+.background {
+    height: 100vh;
+    background: url(../../../public/assets/img/universe_error_page.jpg)0 0/cover no-repeat;
+    display: flex;
+
+    .image {
+        width: 50%;
+        object-fit: contain;
+    }
+
+    .text {
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            color: rgb(255, 255, 255);
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        p{
+            margin-top: 30px;
+            color: rgb(255, 255, 255);
+            font-size: 24px;
+            text-align: center;
+        }
+
+        a {
+            margin-top: 15%;
+            padding: 5px 15px;
+            color: rgb(255, 255, 255);
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 20px;
+            font-size: 20px;
+
+            &:hover {
+                background-color: rgb(255, 255, 255);
+                transition: color 0.2s ease-in;
+                font-weight: 600;
+                color: $darkFontColor;
+            }
+
+            &:active {
+                position: relative;
+                top: 1px;
+            }
+
+        }
+    }
+}

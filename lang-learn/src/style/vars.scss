@@ -3,11 +3,13 @@ $lightBlue: rgb(198, 198, 242);
 $backgroundTable: rgb(216, 216, 244);
 $darkFontColor: rgb(13, 1, 1);
 $lightFontColor: rgb(239, 227, 227);
+$buttonHover: rgb(87, 87, 143);
+$shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 
 @mixin box {
 	max-width: 1140px;
 	margin: 0 auto;
-	padding: 0 15px;
+	
 }
 
 @mixin flexPart ($direction, $aligh) {

@@ -37,12 +37,12 @@
         background-color: $darkBlue;
         color: $lightFontColor;
         border-radius: 9px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: $shadow;
         transition: 0.3s;
     }
 
     .itemButton:hover{
-        background-color: rgb(87, 87, 143);
+        background-color: $buttonHover;
     }
 
     .itemRussian {
