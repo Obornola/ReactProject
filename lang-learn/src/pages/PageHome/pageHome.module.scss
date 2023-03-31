@@ -5,10 +5,12 @@
     src: url(../../fonts/Niconne-Regular.ttf);
 }
 
+.wrapper{
+    height: 100vh;
+    background-color: $lightBlue;
+
 .container {
     @include box();
-    padding: 0 5rem;
-
 
     .row {
         display: flex;
@@ -62,5 +64,7 @@
             }
         }
     }
+
+}
 
 }

@@ -22,4 +22,10 @@
     a:active {
         color: $lightBlue;
     }
+
+    .activeLink {
+        color: $lightBlue;
+        text-decoration: underline;
+        cursor: default;
+    }
 }

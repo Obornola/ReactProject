@@ -9,7 +9,7 @@ $shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 @mixin box {
 	max-width: 1140px;
 	margin: 0 auto;
-	
+	padding: 0 5rem;
 }
 
 @mixin flexPart ($direction, $aligh) {

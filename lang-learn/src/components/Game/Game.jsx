@@ -28,19 +28,18 @@ function Game() {
 
   return (
     <div className = {style.game}>
-    <div className = {style.container}>
-    <>
-    {words.map((item, index) => {
-      return(
-        <div className={cardIndex === index ? classNames(style.slide, style.activeAnim) : classNames(style.slide)} key = {item.id}>
-        <CardItem words={words[cardIndex]} cardIndex={cardIndex} key={cardIndex}/>
-        </div>
-      )
-    })}
+      <div className = {style.container}>
+        {words.map((item, index) => {
+          return(
+            <div className={cardIndex === index ? classNames(style.slide, style.activeAnim) : classNames(style.slide)} key = {item.id}>
+              <CardItem words={words[cardIndex]} cardIndex={cardIndex} key={cardIndex}/>
+            </div>
+    )
+    })
+    }
     <ButtonSlider moveSlide={prevCard} direction={"prev"}/>
     <ButtonSlider moveSlide={nextCard} direction={"next"}/>
-    </>
-    </div >
+      </div >
     </div>
   );
 }
