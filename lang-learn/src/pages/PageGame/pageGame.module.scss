@@ -1,6 +1,5 @@
 @import '../../style/vars.scss';
 
 .wrapper{
-    height: 100vh;
-    background-color: $lightBlue;
+    min-height: 100vh;
 }

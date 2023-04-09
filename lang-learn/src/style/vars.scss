@@ -12,11 +12,5 @@ $shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 	padding: 0 5rem;
 }
 
-@mixin flexPart ($direction, $aligh) {
-    display: flex;
-    justify-content: center;
-    align-items: $aligh;
-    flex-direction: $direction;
-}
 
 

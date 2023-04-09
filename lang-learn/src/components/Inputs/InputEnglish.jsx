@@ -1,0 +1,21 @@
+import React, { useState, useEffect } from 'react';
+
+import style from './input.module.scss';
+
+function Input({getValueInputEnglish, valueInputEnglish}) {
+const [input, setInput] = useState();
+
+useEffect(() => {
+  getValueInputEnglish(valueInputEnglish);
+}, [])
+
+
+  return (
+    <>
+    {console.log(input)}
+      <input className={style.input} type="text" value={input} onChange={(event)=>{setInput(event.target.value)}}/>
+    </>
+  );
+}
+
+export default Input;

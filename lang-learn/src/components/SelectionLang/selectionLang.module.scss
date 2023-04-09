@@ -1,8 +1,9 @@
 @import '../../style/vars.scss';
 
 .container {
-    @include flexPart(row, center);
+    display: flex;
     justify-content: center;
+    align-items: center;
     height: 20vh;
     width: 100%;
     

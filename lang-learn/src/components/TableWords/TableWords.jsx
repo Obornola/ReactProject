@@ -16,10 +16,10 @@ return (
   <div className={style.table}>
     <div className={style.tableHead}>
       <div className={style.columnNumber}>№</div>
-      <div className={style.columnLanguage}>english</div>
-      <div className={style.columnTranscription}>transcription</div>
-      <div className={style.columnRussian}>russian</div>
-      <div className={style.columnEdit}>edit</div>
+      <div className={style.columnLanguage}>английский</div>
+      <div className={style.columnTranscription}>транскрипция</div>
+      <div className={style.columnRussian}>русский</div>
+      <div className={style.columnEdit}>редактирование</div>
     </div>
     <>
       {

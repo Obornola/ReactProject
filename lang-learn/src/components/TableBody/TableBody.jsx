@@ -5,13 +5,32 @@ import deleteBtn from './deleteBtn.svg';
 import editBtn from './editBtn.svg';
 import saveBtn from './saveBtn.svg';
 import closeBtn from './closeBtn.svg';
+import InputEnglish from '../Inputs/InputEnglish';
+import InputTranscription from '../Inputs/InputTranscription';
+import InputRussian from '../Inputs/InputRussian';
+
 import style from './tableBody.module.scss';
 
 function TableBody({number, english, transcription, russian}) {
 const [isEdit, setIsEdit] = useState(true);
+const [valueInputEnglish, setValueInputEnglish] = useState({english});
+const [valueInputTranscription, setValueInputTranscription] = useState({transcription});
+const [valueInputRussian, setValueInputRussian] = useState({russian});
 
 function getEditWord(){
 setIsEdit(!isEdit);
+}
+
+function getValueInputEnglish (value){
+  setValueInputEnglish(valueInputEnglish);
+}
+
+function getValueInputTranscription (value){
+  setValueInputTranscription(valueInputTranscription);
+}
+
+function getValueInputRussian (value){
+  setValueInputRussian(valueInputRussian);
 }
 
 function getCansel(){
@@ -39,13 +58,13 @@ return (
     <div className={style.tableBody}>
     <div className={style.columnNumber}>{number}</div>
       <div className={style.columnLanguage}>
-        <input type="text" defaultValue={english}/>
+        <InputEnglish getValueInputEnglish={getValueInputEnglish} valueInputEnglish={english}/>
       </div>
       <div className={style.columnTranscription}>
-        <input type="text" defaultValue={transcription}/>
+        <InputTranscription getValueInputTranscription={getValueInputTranscription} valueInputTranscription={transcription}/>
       </div>
       <div className={style.columnRussian}>
-        <input type="text" defaultValue={russian}/>
+        <InputRussian getValueInputRussian={getValueInputRussian} valueInputRussian={russian}/>
       </div>
       <div className={style.columnEdit}>
         <div className={classNames(style.button, style.btnSave)}>

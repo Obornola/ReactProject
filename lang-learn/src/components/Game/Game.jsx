@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
 import words from '../../data/words.json';
-import classNames from 'classnames/bind';
-import CardItem from '../CardItem/CardItem.jsx';
-import ButtonSlider from '../ButtonSlider/ButtonSlider.jsx';
-
+import CardItem from '../CardItem/CardItem';
+import ButtonSlider from '../ButtonSlider/ButtonSlider';
+import Counter from '../Counter/Counter';
 
 import style from './game.module.scss';
 
 function Game() {
   const [cardIndex, setCardIndex] = useState(0);
-
+  const [cardCount, setCardCount] = useState(0);
+  const arrWordsId = [];
+  console.log(arrWordsId);
+  
   function prevCard() {
     if (cardIndex === 0) {
       setCardIndex(words.length-1);
@@ -28,17 +30,13 @@ function Game() {
 
   return (
     <div className = {style.game}>
-      <div className = {style.container}>
-        {words.map((item, index) => {
-          return(
-            <div className={cardIndex === index ? classNames(style.slide, style.activeAnim) : classNames(style.slide)} key = {item.id}>
-              <CardItem words={words[cardIndex]} cardIndex={cardIndex} key={cardIndex}/>
-            </div>
-    )
-    })
-    }
-    <ButtonSlider moveSlide={prevCard} direction={"prev"}/>
-    <ButtonSlider moveSlide={nextCard} direction={"next"}/>
+      <div className = {style.container} key={cardIndex}>
+        <CardItem words={words[cardIndex]} setCardCount={setCardCount} cardCount={cardCount} arrWordsId={arrWordsId}/>
+        <ButtonSlider moveSlide={prevCard} direction={"prev"}/>
+        <ButtonSlider moveSlide={nextCard} direction={"next"}/>
+        <div className={style.counter}>
+          <Counter cardCount={cardCount}/>
+        </div>
       </div >
     </div>
   );
