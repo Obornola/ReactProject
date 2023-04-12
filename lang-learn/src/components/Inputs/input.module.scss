@@ -8,3 +8,20 @@ input {
     color: $darkFontColor;
     border-radius: 5px;
 }
+
+.errors {
+    display: none;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 0.8;
+    color: rgb(246, 45, 45);
+}
+
+input:invalid {
+    border: 2px solid rgb(246, 45, 45);
+}
+
+input:invalid ~ .errors{
+    display: block;
+}

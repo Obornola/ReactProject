@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import style from './input.module.scss';
 
-function Input({getValueInputEnglish, valueInputEnglish}) {
-const [input, setInput] = useState();
+function Input({english, getValueInputEnglish, valueInputEnglish}) {
+const [input, setInput] = useState(english);
 
 useEffect(() => {
   getValueInputEnglish(valueInputEnglish);
@@ -12,7 +12,6 @@ useEffect(() => {
 
   return (
     <>
-    {console.log(input)}
       <input className={style.input} type="text" value={input} onChange={(event)=>{setInput(event.target.value)}}/>
     </>
   );
