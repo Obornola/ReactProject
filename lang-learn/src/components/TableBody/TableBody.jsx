@@ -1,66 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HandySvg } from 'handy-svg';
 import classNames from 'classnames/bind';
 import deleteBtn from './deleteBtn.svg';
 import editBtn from './editBtn.svg';
 import saveBtn from './saveBtn.svg';
 import closeBtn from './closeBtn.svg';
-import Input from '../Inputs/Input';
 
 import style from './tableBody.module.scss';
 
 
 function TableBody({number, english, transcription, russian}) {
 const [isEdit, setIsEdit] = useState(true);
-const [values, setValues] = useState({
-  english: english,
-  transcription: transcription,
-  russian: russian,
-});
 
-const input = [
-  {
-    id: 1,
-    name: "english",
-    type: "text",
-    errorMessage: "Поле заполняется английскими буквами",
-    required: true,
-    pattern: "^[a-zA-Z]+$",
-  },
-  {
-    id: 2,
-    name: "transcription",
-    type: "text",
-    errorMessage: "Поле заполнено неверно",
-    required: true,
-    pattern: "\D [^0-9]"
-  },
-  {
-    id: 3,
-    name: "russian",
-    type: "text",
-    errorMessage: "Поле заполняется русскими буквами",
-    required: true,
-    pattern:"^[А-Яа-яЁё\s]+$"
+const [englishInput, setEnglishInput] = useState(english);
+const [transcriptionInput, setTranscriptionInput] = useState(transcription);
+const [russianInput, setRussianInput] = useState(russian);
+
+const [englishErrorMessage, setEnglishErrorMessage] = useState('');
+const [transcriptionErrorMessage, setTranscriptionErrorMessage] = useState('');
+const [russianErrorMessage, setRussianErrorMessage] = useState('');
+
+const [inputsValid, setInputsValid] = useState(false);
+
+useEffect(() => {
+  if(englishErrorMessage || transcriptionErrorMessage || russianErrorMessage){
+    setInputsValid(false);
+  }else{
+    setInputsValid(true);
   }
-]
+}, [englishErrorMessage, transcriptionErrorMessage, russianErrorMessage]);
+
+const englishInputHandler = (event) => {
+  setEnglishInput(event.target.value.toLowerCase());
+  const re = /^[a-zA-Z]+(?:\s[a-zA-Z.-]+)*$/;
+  if(!re.test(String(event.target.value).toLowerCase())){
+    setEnglishErrorMessage('Поле заполняется английскими буквами');
+    if(!event.target.value){
+    setEnglishErrorMessage('Поле не заполнено');
+    }
+  }else{
+    setEnglishErrorMessage('');
+  }
+}
+
+const transcriptionInputHandler = (event) => {
+  setTranscriptionInput(event.target.value.toLowerCase());
+    if(!event.target.value){
+      setTranscriptionErrorMessage('Поле не заполнено');
+    }else{
+      setTranscriptionErrorMessage('');
+  }
+}
+
+const russianInputHandler = (event) => {
+  setRussianInput(event.target.value.toLowerCase());
+  const re = /^[а-яёА-ЯЁ]+(?:\s[а-яёА-ЯЁ.-]+)*$/;
+  if(!re.test(String(event.target.value).toLowerCase())){
+    setRussianErrorMessage('Поле заполняется русскими буквами');
+    if(!event.target.value){
+      setRussianErrorMessage('Поле не заполнено');
+    }
+  }else{
+    setRussianErrorMessage('');
+  }
+}
 
 function getEditWord(){
-setIsEdit(!isEdit);
-}
+  setIsEdit(!isEdit);
+  }
+  
+  function handleCansel(){
+    setIsEdit(true);
+  }
 
-function handleCansel(){
-  setIsEdit(true);
-}
-
-const handleSave = (event) => {
-  event.preventDefault();
-}
-
-const onChange = (event) => {
-  setValues({...values, [event.target.name]:event.target.value.
-  toLowerCase()});
-}
+  function handleSave(){
+    console.log(setEnglishInput(englishInput));
+    console.log(setTranscriptionInput(transcriptionInput));
+    console.log(setEnglishInput(russianInput));
+  }
 
 return (
 <>
@@ -72,9 +89,9 @@ return (
       <div className={style.columnTranscription}>{transcription}</div>
       <div className={style.columnRussian}>{russian}</div>
       <div className={style.columnEdit}>
-        <div className={classNames(style.button, style.btnEdit)} onClick={getEditWord}>
+        <button className={classNames(style.button, style.btnEdit)} onClick={getEditWord}>
           <HandySvg src={editBtn} className={style.btnEditSvg} width="16" height="16" fill="none"/>
-        </div>
+        </button>
       </div>
     </div>
   </>
@@ -83,50 +100,39 @@ return (
     <div className={style.tableBody}>
     <div className={style.columnNumber}>{number}</div>
       <div className={style.columnLanguage}>
-        <Input name="english"
-          id="1"
-          type="text"
-          errorMessage= "Поле заполняется английскими буквами"
-          errorMessageEmpty= "Поле не заполнено"
-          value={values.english}
-          onChange={onChange}
-          pattern= "^[a-zA-Z]+$"
-          required= {true}
+        <input onChange={event => englishInputHandler(event)}
+              name="english"
+              type="text"
+              value={englishInput}
         />
+        {englishErrorMessage && <div className={style.errors}>{englishErrorMessage}</div>}
       </div>
       <div className={style.columnTranscription}>
-        <Input name="transcription"
-          id="2"
-          type="text"
-          errorMessageEmpty= "Поле не заполнено"
-          value={values.transcription}
-          onChange={onChange}
-              //  pattern= "\D [^0-9]"
-          required= {true}
+        <input onChange={event => transcriptionInputHandler(event)}
+              name="transcription"
+              type="text"
+              value={transcriptionInput}
         />
+        {transcriptionErrorMessage && <div className={style.errors}>{transcriptionErrorMessage}</div>}
       </div>
       <div className={style.columnRussian}>
-        <Input name="russian"
-          id="3"
-          type="text"
-          errorMessage= "Поле заполняется русскими буквами"
-          errorMessageEmpty= "Поле не заполнено"
-          value={values.russian}
-          onChange={onChange}
-          pattern= "^[А-Яа-яЁё\s]+$"
-          required= {true}
+        <input onChange={event => russianInputHandler(event)}
+              name="russian"
+              type="text"
+              value={russianInput}
         />
+        {russianErrorMessage && <div className={style.errors}>{russianErrorMessage}</div>}
       </div>
       <div className={style.columnEdit}>
-        <div className={classNames(style.button, style.btnSave)} onClick={handleSave}>
+        <button onClick={handleSave} className={classNames(style.button, style.btnSave)} disabled = {!inputsValid}>
           <HandySvg src={saveBtn} className={style.btnSaveSvg} width="16" height="16" fill="none" />
-        </div>
-        <div className={classNames(style.button, style.btnDelete)}>
+        </button>
+        <button className={classNames(style.button, style.btnDelete)}>
           <HandySvg src={deleteBtn} className={style.btnDeleteSvg} width="16" height="16" fill="none" />
-        </div>
-        <div className={classNames(style.button, style.btnClose)} onClick={handleCansel}>
+        </button>
+        <button className={classNames(style.button, style.btnClose)} onClick={handleCansel}>
           <HandySvg src={closeBtn} className={style.btnCloseSvg} width="16" height="16" fill="none" />
-        </div>
+        </button>
       </div>
     </div>
   </>
