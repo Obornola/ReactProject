@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
-import words from '../../data/words.json';
+import React, {useState, useContext} from 'react';
+import { globalContext } from '../../Context/MyContext';
 import CardItem from '../CardItem/CardItem';
 import ButtonSlider from '../ButtonSlider/ButtonSlider';
 import Counter from '../Counter/Counter';
 
 import style from './game.module.scss';
 
+
 function Game() {
+  const {words} = useContext(globalContext);
   const [cardIndex, setCardIndex] = useState(0);
   const [cardCount, setCardCount] = useState(0);
   const arrWordsId = [];

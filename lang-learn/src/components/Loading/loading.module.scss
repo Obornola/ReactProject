@@ -1,0 +1,48 @@
+@import '../../style/vars.scss';
+
+@font-face {
+    font-family: Imported;
+    src: url(../../fonts/Niconne-Regular.ttf);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $lightBlue;
+    font-family: Imported;
+
+    .loading {
+        position: relative;
+
+        h2 {
+            position: absolute;
+            // color: $lightFontColor;
+            font-size: 5em;
+            transform: translate(-50%);
+
+            &:first-child {
+                color: transparent;
+                -webkit-text-stroke: 1.5px $darkBlue;
+            }
+
+            &:last-child {
+                color: $darkBlue;
+                animation: wave 4s ease-in-out infinite;
+            }
+
+            @keyframes wave {
+
+                0%,
+                100% {
+                    clip-path: polygon(0% 59%, 6% 64%, 12% 68%, 19% 69%, 28% 69%, 38% 68%, 46% 65%, 53% 59%, 59% 52%, 67% 46%, 76% 41%, 84% 40%, 94% 39%, 100% 39%, 100% 100%, 0 100%);
+                }
+
+                50% {
+                    clip-path: polygon(0% 59%, 7% 53%, 14% 47%, 22% 40%, 32% 41%, 39% 44%, 46% 52%, 52% 59%, 56% 65%, 64% 72%, 72% 74%, 82% 75%, 91% 69%, 100% 59%, 100% 100%, 0 100%);
+                }
+            }
+        }
+    }
+
+}

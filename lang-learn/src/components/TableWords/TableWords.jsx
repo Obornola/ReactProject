@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { globalContext } from '../../Context/MyContext';
 import TableBody from '../TableBody/TableBody';
-import words from '../../data/words.json';
 import style from './tableWords.module.scss';
 
-const numberArr = [];
+
+function TableWords() {
+  const {words, setWords, isLoaded, setIsLoaded} = useContext(globalContext);
+
+  const numberArr = [];
 
   for (let i = 1; i <= words.length; i++){
       numberArr.push(i);
   }
 
-function TableWords() {
 return (
 <div className={style.container}>
   <h3>Таблица слов</h3>
@@ -22,15 +25,7 @@ return (
       <div className={style.columnEdit}>редактирование</div>
     </div>
     <>
-      {
-      words.map((item, index)=>
-      <TableBody english={item.english} 
-                 transcription={item.transcription} 
-                 russian={item.russian}
-                 number={numberArr[index]}
-                 key={item.id}>
-      </TableBody>
-      )}
+      {words.map((item, index)=> (<TableBody item={item} number={numberArr[index]} key={item.id} setIsLoaded={setIsLoaded} isLoaded={isLoaded}/>))}
     </>
   </div>
 </div>

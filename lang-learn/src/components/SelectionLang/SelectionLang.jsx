@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { globalContext } from '../../Context/MyContext';
 import Select from 'react-select';
-import languages from '../../data/languages.json';
 import style from './selectionLang.module.scss';
 
 function SelectionLang() {
+  const {languages, setLanguages} = useContext(globalContext);
+
   return (
   <div className= {style.container}>
     <div className= {style.dropDownList}>
