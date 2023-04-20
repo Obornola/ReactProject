@@ -1,0 +1,28 @@
+@import '../../style/vars.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+    
+
+
+    .dropDownList {
+        display: flex;
+        align-items: center;
+    }
+
+    .select {
+        width: 300px;
+        box-shadow: $shadow;
+        font-size: 30px;
+        background-color: $backgroundTable;
+        color: $darkFontColor;
+        border: 2px solid $darkBlue;
+        border-radius: 5px;
+
+    }
+
+}

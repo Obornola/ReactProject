@@ -1,11 +1,14 @@
 import React, {useContext} from 'react';
 import { globalContext } from '../../Context/MyContext';
 import TableBody from '../TableBody/TableBody';
+
+
 import style from './tableWords.module.scss';
 
 
 function TableWords() {
   const {words, setWords, isLoaded, setIsLoaded} = useContext(globalContext);
+  
 
   const numberArr = [];
 

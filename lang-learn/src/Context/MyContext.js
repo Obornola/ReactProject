@@ -21,8 +21,11 @@ export function ContextProvider ({children}){
     }, [isLoaded]);
 
     if(!words && !languages){
-        return <Loading/>
-    }
+        return (
+            <>
+                <Loading/>
+            </>
+    )}
     const value = {words, setWords, languages, setLanguages, isLoaded, setIsLoaded};
 
     return (

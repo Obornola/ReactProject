@@ -12,7 +12,7 @@ import style from './tableBody.module.scss';
 
 
 function TableBody({item, number, setIsLoaded, isLoaded}) {
-
+  // console.log(item.id);
 
 const [isEdit, setIsEdit] = useState(true);
 const [objectWords, setObjectWords] = useState();
@@ -93,7 +93,6 @@ function handleEditWords(){
 
 return (
 <>
-{console.log(objectWords)}
   {isEdit ? (
   <>
     <div className={style.tableBody}>
